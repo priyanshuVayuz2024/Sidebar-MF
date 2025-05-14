@@ -102,7 +102,7 @@ export const SideBar = ({ open, setOpen, collapsedWidth, drawerWidth, navigate, 
     // const navigate = useNavigate();
     // const location = useLocation();
 
-    const location = locationParent || { pathname: "/", search: "", hash: "", state: null, key: "default" }
+    const location = locationParent || { pathname: window?.location?.pathname, search: "", hash: "", state: null, key: "default" }
 
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));

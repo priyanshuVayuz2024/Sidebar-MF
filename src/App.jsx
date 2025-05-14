@@ -6,11 +6,8 @@ import { SideBar } from "./component/Sidebar"
 const drawerWidth = 240;
 const collapsedWidth = 80;
 function App({ open, setOpen, navigate, location }) {
-
   return (
     <>
-      {/* <BrowserRouter basename="/"> */}
-      <h1>Hello</h1>
       <SideBar
         open={open}
         setOpen={setOpen}
@@ -19,7 +16,6 @@ function App({ open, setOpen, navigate, location }) {
         navigate={navigate}
         locationParent={location}
       />
-      {/* </BrowserRouter> */}
     </>
   )
 }
