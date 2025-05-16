@@ -17,15 +17,26 @@ export default defineConfig(({ mode }) => {
         formats: ['umd'],
       },
       rollupOptions: {
-        external: isProdBuild ? ['react', 'react-dom', 'tailwindcss', '@mui/material'] : [],
+        external: isProdBuild
+          ? [
+            'react',
+            'react-dom',
+            '@mui/material',
+            '@emotion/react',
+            '@emotion/styled',
+            '@mui/icons-material'
+          ]
+          : [],
         output: {
           globals: {
             react: 'React',
             'react-dom': 'ReactDOM',
-            'tailwindcss': 'tailwindcss',
             '@mui/material': 'MaterialUI',
-          },
-        },
+            '@emotion/react': 'EmotionReact',
+            '@emotion/styled': 'EmotionStyled',
+            '@mui/icons-material': 'MuiIcons'
+          }
+        }
       },
       cssCodeSplit: false,
       define: {
@@ -34,7 +45,16 @@ export default defineConfig(({ mode }) => {
       outDir: 'dist',
     },
     optimizeDeps: {
-      exclude: isProdBuild ? ['react', 'react-dom', 'tailwindcss', '@mui/material'] : [],
-    },
+      exclude: isProdBuild
+        ? [
+          'react',
+          'react-dom',
+          '@mui/material',
+          '@emotion/react',
+          '@emotion/styled',
+          '@mui/icons-material'
+        ]
+        : [],
+    }
   };
 });
