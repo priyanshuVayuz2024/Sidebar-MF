@@ -33,7 +33,7 @@ import {
   ExpandMore,
   ExpandLess,
 } from "@mui/icons-material";
-// import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const navItems = [
   // Category 1
@@ -102,19 +102,10 @@ export const SideBar = ({
   setOpen,
   collapsedWidth,
   drawerWidth,
-  locationParent,
 }) => {
   const [openItems, setOpenItems] = useState({});
-  // const navigate = useNavigate();
-  // const location = useLocation();
-  const navigate = window.navigateGlobal;
-  const location = locationParent || {
-    pathname: window?.location?.pathname,
-    search: "",
-    hash: "",
-    state: null,
-    key: "default",
-  };
+  const navigate = useNavigate();
+  const location = useLocation()
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
