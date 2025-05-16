@@ -1,11 +1,9 @@
 import { useState } from "react";
-import { SideBar } from "./component/Sidebar"
-
-
+import { SideBar } from "./component/Sidebar";
 
 const drawerWidth = 240;
 const collapsedWidth = 80;
-function App({ open, setOpen, navigate, location }) {
+function App({ open, setOpen, location }) {
   return (
     <>
       <SideBar
@@ -13,11 +11,10 @@ function App({ open, setOpen, navigate, location }) {
         setOpen={setOpen}
         drawerWidth={drawerWidth}
         collapsedWidth={collapsedWidth}
-        navigate={navigate}
         locationParent={location}
       />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
